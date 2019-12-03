@@ -20,8 +20,6 @@ import okhttp3.Callback;
 import okhttp3.Response;
 
 public class AutoUpdateService extends Service {
-    public AutoUpdateService() {
-    }
 
     @Override
     public IBinder onBind(Intent intent) {
@@ -49,7 +47,7 @@ public class AutoUpdateService extends Service {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         String weatherString = prefs.getString("weather",null);
         if(weatherString != null){
-            final Weather weather = Utility.handleWeatherResponse(weatherString);
+            Weather weather = Utility.handleWeatherResponse(weatherString);
             String weatherId = weather.basic.weatherId;
             String weatherUrl = "http://guolin.tech/api.weather?cityid=" + weatherId + "&key=bc0418b57b2d4918819d3974ac1285d9";
             HttpUtil.sendOkHttpRequest(weatherUrl, new Callback() {
@@ -61,7 +59,7 @@ public class AutoUpdateService extends Service {
                 @Override
                 public void onResponse(Call call, Response response) throws IOException {
                     String responseText = response.body().string();
-                    Weather weather1 = Utility.handleWeatherResponse(responseText);
+                    Weather weather = Utility.handleWeatherResponse(responseText);
                     if(weather!=null&&"ok".equals(weather.status)){
                         SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(AutoUpdateService.this).edit();
                         editor.putString("weather",responseText);

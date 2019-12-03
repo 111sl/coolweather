@@ -10,7 +10,7 @@
         android:scaleType="centerCrop"/>
 
     <android.support.v4.widget.DrawerLayout
-        android:id="@+id/drwaer_layout"
+        android:id="@+id/drawer_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="30dp">
@@ -30,8 +30,7 @@
                 <LinearLayout
                     android:orientation="vertical"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    >
+                    android:layout_height="wrap_content">
 
                     <include layout="@layout/title" />
                     <include layout="@layout/now" />
@@ -50,13 +49,8 @@
             android:name="com.example.uncledrew.coolweather.service.ChooseAreaFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_gravity="start"
-            android:fitsSystemWindows="true"/>
+            android:layout_gravity="start"/>
 
     </android.support.v4.widget.DrawerLayout>
-
-
-
-
 
 </FrameLayout>

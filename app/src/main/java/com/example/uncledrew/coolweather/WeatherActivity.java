@@ -63,7 +63,7 @@ public class WeatherActivity extends AppCompatActivity {
         }
         setContentView(R.layout.activity_weather);
         //初始化各控件
-        drawerLayout = findViewById(R.id.drwaer_layout);
+        drawerLayout = findViewById(R.id.drawer_layout);
         swipeRefresh = findViewById(R.id.swipe_refresh);
         swipeRefresh.setColorSchemeResources(R.color.colorPrimary);
         navButton = findViewById(R.id.nav_button);
@@ -95,8 +95,8 @@ public class WeatherActivity extends AppCompatActivity {
         }else{
             //无缓存时去服务器查询天气
             mWeatherId = getIntent().getStringExtra("weather_id");
-            String weatherId = getIntent().getStringExtra("weather_id");
-//            weatherLayout.setVisibility(View.INVISIBLE);
+//            String weatherId = getIntent().getStringExtra("weather_id");
+            weatherLayout.setVisibility(View.INVISIBLE);
             requestWeather(mWeatherId);
         }
         swipeRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
