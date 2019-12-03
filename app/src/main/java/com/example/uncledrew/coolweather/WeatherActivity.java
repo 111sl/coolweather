@@ -1,5 +1,6 @@
 package com.example.uncledrew.coolweather;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Build;
@@ -21,6 +22,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.example.uncledrew.coolweather.gson.Forecast;
 import com.example.uncledrew.coolweather.gson.Weather;
+import com.example.uncledrew.coolweather.service.AutoUpdateService;
 import com.example.uncledrew.coolweather.util.HttpUtil;
 import com.example.uncledrew.coolweather.util.Utility;
 
@@ -194,6 +196,8 @@ public class WeatherActivity extends AppCompatActivity {
         carWashText.setText(carWash);
         sportText.setText(sport);
         weatherLayout.setVisibility(View.VISIBLE);
+        Intent intent = new Intent(this,AutoUpdateService.class);
+        startService(intent);
     }
 
 
